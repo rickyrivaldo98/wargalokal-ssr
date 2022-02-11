@@ -1,6 +1,5 @@
-import express from 'express'
-import compression from 'compression'
-import { createPageRenderer } from 'vite-plugin-ssr'
+const express = require('express')
+const { createPageRenderer } = require('vite-plugin-ssr')
 
 const isProduction = process.env.NODE_ENV === 'production'
 const root = `${__dirname}/..`
@@ -9,8 +8,6 @@ startServer()
 
 async function startServer() {
   const app = express()
-
-  app.use(compression())
 
   let viteDevServer
   if (isProduction) {
